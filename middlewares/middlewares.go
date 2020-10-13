@@ -4,8 +4,8 @@ import (
 	"context"
 	"net/http"
 
-	"../config"
-	"../models"
+	"github.com/rubhiauliatirta/rublog/config"
+	"github.com/rubhiauliatirta/rublog/models"
 	"github.com/gorilla/mux"
 	"github.com/gorilla/sessions"
 )

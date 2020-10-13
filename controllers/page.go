@@ -5,8 +5,8 @@ import (
 	"net/http"
 	"text/template"
 
-	"../handler"
-	"../models"
+	"github.com/rubhiauliatirta/rublog/handler"
+	"github.com/rubhiauliatirta/rublog/models"
 )
 
 func LoginPage(w http.ResponseWriter, r *http.Request) {

@@ -8,7 +8,7 @@ import (
 	"os"
 	"text/template"
 
-	"../handler"
+	"github.com/rubhiauliatirta/rublog/handler"
 )
 
 // smtpServer data to smtp server

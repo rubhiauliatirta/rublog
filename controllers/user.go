@@ -5,9 +5,9 @@ import (
 	"net/http"
 	"text/template"
 
-	"../handler"
-	"../helpers"
-	"../models"
+	"github.com/rubhiauliatirta/rublog/handler"
+	"github.com/rubhiauliatirta/rublog/helpers"
+	"github.com/rubhiauliatirta/rublog/models"
 	"github.com/gorilla/sessions"
 	"github.com/jinzhu/gorm"
 )

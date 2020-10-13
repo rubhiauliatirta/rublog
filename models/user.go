@@ -1,7 +1,7 @@
 package models
 
 import (
-	"../config"
+	"github.com/rubhiauliatirta/rublog/config"
 )
 
 var Db = config.Db

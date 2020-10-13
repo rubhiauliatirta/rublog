@@ -5,7 +5,7 @@ import (
 	"regexp"
 	"time"
 
-	"../helpers"
+	"github.com/rubhiauliatirta/rublog/helpers"
 	"github.com/jinzhu/gorm"
 )
 

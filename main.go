@@ -7,11 +7,11 @@ import (
 	"os"
 	"time"
 
-	"./config"
-	"./controllers"
-	"./middlewares"
-	"./models"
 	"github.com/gorilla/mux"
+	"github.com/rubhiauliatirta/rublog/config"
+	"github.com/rubhiauliatirta/rublog/controllers"
+	"github.com/rubhiauliatirta/rublog/middlewares"
+	"github.com/rubhiauliatirta/rublog/models"
 )
 
 var PORT string

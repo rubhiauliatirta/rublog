@@ -6,8 +6,8 @@ import (
 	"text/template"
 	"time"
 
-	"../handler"
-	"../models"
+	"github.com/rubhiauliatirta/rublog/handler"
+	"github.com/rubhiauliatirta/rublog/models"
 )
 
 func ArticleUpdate(w http.ResponseWriter, r *http.Request) {
