@@ -36,7 +36,7 @@ func main() {
 
 	server := &http.Server{
 		Handler: middlewares.SessionContext(router),
-		Addr:    "127.0.0.1:" + PORT,
+		Addr:    ":" + PORT,
 
 		// Good practice: enforce timeouts for servers you create!
 		WriteTimeout: 15 * time.Second,
