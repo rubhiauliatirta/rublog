@@ -2,6 +2,7 @@ package main
 
 import (
 	"flag"
+	"fmt"
 	"log"
 	"net/http"
 	"os"
@@ -23,6 +24,7 @@ func init() {
 	} else {
 		PORT = value
 	}
+	fmt.Println(PORT, "ini portttt")
 }
 
 func main() {
