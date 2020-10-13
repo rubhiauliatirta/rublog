@@ -1,0 +1,18 @@
+{{define "_navbar"}}
+<nav class="navbar navbar-dark" style="background-color: black;">
+  <a class="navbar-brand" href="/" style="font-weight: bold;">RuBlog</a>
+  <div class="d-flex">
+    <a class="nav-link active" href="/">HOME</a>
+    <a class="nav-link" href="/about">ABOUT</a>
+    <a class="nav-link" href="/contact">CONTACT US</a>
+    {{if .IsLogin}}
+      <a class="nav-link" href="/articles">MY ARTICLES</a>
+      <a class="nav-link" href="/logout">LOGOUT</a> 
+    {{else}}
+      <a class="nav-link" href="/login">LOGIN</a>
+    {{end}}
+  </div>
+  </div>
+</nav>
+<div class="w-100" style="background-color:#850000; height: 4px;"></div>
+{{end}}

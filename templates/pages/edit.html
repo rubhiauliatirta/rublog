@@ -1,0 +1,108 @@
+{{define "edit"}}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  {{template "_header" .}}
+  <link href="/static/css/create.css" type="text/css" rel="stylesheet">
+  <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+  <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+</head>
+
+<body>
+  {{template "_navbar" .}}
+  {{template "_alert" .}}
+  <div class="container">
+    <div class="row py-5">
+      <div class="col">
+        <h1 class="text-white">Edit Articles</h1>
+        <!-- <div class="w-100 mt-3 mb-4" style="height: 3px; background-color: black;" ></div> -->
+        <div class="w-100 white-panel mt-5 p-5">
+          <form action="/articles/edit/{{.Data.Article.ID}}" method="POST" id="article-form">
+            <div class="form-group">
+              <label for="title">Title</label>
+              <input name="title" type="text" class="form-control" id="title" placeholder="Article Title" required value="{{.Data.Article.Title}}">
+            </div>
+            <div class="form-group">
+              <label for="title">Featured Image Url</label>
+              <input name="image_url" type="text" class="form-control" id="title" placeholder="https://picsum.photos/200"
+                required value="{{.Data.Article.ImageURL}}">
+            </div>
+            <div id="editor" style="min-height: 200px;"></div>
+            <textarea name="text" id="hiddenText" cols="30" rows="10"  hidden>{{.Data.Article.Text}}</textarea>
+            <textarea name="content" id="hiddenHTML" cols="30" rows="10" hidden>{{.Data.Article.Content}}</textarea>
+          </form>
+          <div class="mt-4 text-right">
+            <a href="/articles" class="btn btn-secondary">Cancel</a>
+            <button id="btn-draft" class="btn btn-primary">Save as Draft</button>
+            {{if .Data.Article.IsPublish}}
+              <button id="btn-save" class="btn btn-success">Save</button>
+            {{else}}
+              <button id="btn-publish" class="btn btn-success">Publish Now</button>
+            {{end}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    var quill = new Quill('#editor', {
+      modules: {
+        toolbar: [
+          [{ header: [1, 2, 3, 4, 5, false] }],
+          ['bold', 'italic', 'underline'],
+          ['code-block'],
+          [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+          [{ 'script': 'sub' }, { 'script': 'super' }],      // superscript/subscript
+          [{ 'indent': '-1' }, { 'indent': '+1' }],
+          [{ 'align': [] }],
+
+        ]
+      },
+      placeholder: 'Article content',
+      theme: 'snow'  // or 'bubble'
+    });
+
+    quill.on('text-change', function () {
+      $("textarea#hiddenText").val(quill.getText());
+      // $("textarea#hiddenText").html(quill.getText());
+      $("textarea#hiddenHTML").val(quill.root.innerHTML);
+      // $("textarea#hiddenHTML").html(quill.root.innerHTML);
+    })
+   
+
+  </script>
+  <script>
+ 
+    $(document).ready(function () {
+      $("#btn-draft").click(function () {
+        submit(false)
+      })
+      $("#btn-publish").click(function () {
+        submit(true)
+      })
+      $("#btn-save").click(function () {
+        submit()
+      })
+      quill.root.innerHTML = $("textarea#hiddenHTML").val();
+    });
+
+    function submit(isPublish) {
+      if(isPublish != undefined) {
+        let input = $("<input>")
+        .attr("type", "hidden")
+        .attr("name", "is_publish").val(isPublish);
+
+        $("#article-form").append(input)
+      }
+
+      $("#article-form").submit()
+    }
+
+  </script>
+</body>
+
+</html>
+
+{{end}}

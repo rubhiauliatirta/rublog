@@ -1,0 +1,36 @@
+{{define "contact"}}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {{template "_header" .}}
+    <link rel="stylesheet" href="/static/css/contact.css">
+  </head>
+
+<body>
+  {{template "_navbar" .}}
+  {{template "_alert" .}}
+  <div class="container">
+    <div class="row justify-content-center align-items-center text-white" style="min-height: 100vh;">
+          <div class="col-lg-7 col-sm-12 text-center p-5">
+            <img src="./static/assets/contact-us.svg" style="width: 85%;" class="p-4" alt="">
+            <h1 class="display-4">
+              Contact Our Team
+            </h1>
+            <h6>
+              Feel free to get in touch with us.
+            </h6>
+          </div>
+          <div class="white-panel col-lg-5 col-md-12 p-5 d-flex flex-column" style="height: 550px;">
+            <h3 style="color: black;">Contact Us</h3>
+            <form action="/contact" method="POST" class="d-flex flex-column flex-grow-1">
+              <input name="name" type="text" placeholder="Your Name" >
+              <input name="email" type="email" placeholder="Your Email" >
+              <textarea name="content" type="text" placeholder="Your Message" class="flex-grow-1"></textarea>
+              <button class="btn btn-myred" type="submit">Send</button>
+            </form>
+          </div>
+    </div>
+  </div>
+</body>
+</html>
+{{end}}

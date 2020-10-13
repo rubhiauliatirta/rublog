@@ -1,0 +1,53 @@
+{{define "about"}}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  {{template "_header" .}}
+  <link href="/static/css/about.css" type="text/css" rel="stylesheet">
+</head>
+
+<body>
+  {{template "_navbar" .}}
+  <section class="section-blog">
+    <div class="container">
+      <div class="row">
+        <div class="col text-center">
+          <h2 class="myred font-weight-bold">About RuBlog</h2>
+          <p class="mt-5 px-5">RuBlog adalah sebuah project akhir dalam kelas part time
+            <i>Scalable Web Services with Golang</i> yang diadakan oleh
+            <a href="https://hacktiv8.com" class="font-weight-bold">Hacktiv8 Indonesia</a>. 
+            Dalam project ini kami diminta untuk membuat sebuat web server
+            yang bertemakan sebuah blog, dimana website ini merupakan platform yang
+            memungkinkan penggunanya untuk membuat artikel, serta melihat artikel milik 
+            pengguna lain yang telah dipublikasikan.
+          </p>
+          <div class="mt-5">
+            <a href="https://hacktiv8.com" class="font-weight-bold">Source on Github</a> 
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section-me">
+    <div class="container">
+      <div class="row">
+        <div class="col text-white">
+          <h2 class="text-center myred font-weight-bold">About Me</h2>
+          <div class="d-flex mt-5">
+            <img src="./static/assets/logo.png">
+            <div class="col px-5">
+              <h2>Rubhi Aulia Tirta</h2>
+              <h5>Fullstack Javascript Instructor at Hacktiv8 Indonesia</h5>
+              <h5>Geoscientist</h5>
+              <p class="mt-5">Actually interested in the back-end world, but mostly involved in the front-end world, especially React.js and Vue.js. Almost forgot the geoscience world.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+
+</html>
+{{end}}

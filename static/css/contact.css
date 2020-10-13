@@ -1,0 +1,36 @@
+body{
+  padding: 0;
+  background-color: #850000;
+}
+
+.white-panel {
+  background-color: rgba(255, 255, 255, 1);
+  height: 500px;
+  transition: .3s ease-in-out;
+  z-index: 0;
+  box-shadow: 0 0 15px 9px #00000096;
+}
+
+textarea,
+input[type="text"],
+input[type="email"] {
+  width: 100%;
+  display: block;
+  margin: 0.5rem 0;
+  padding: 10px;
+  border: 1px solid #850000;
+  outline: none;
+}
+
+input[type="button"] {
+  max-width: 150px;
+  width: 100%;
+  background: #850000;
+  color: #FFFFFF;
+  border: none;
+  padding: 10px;
+  text-transform: uppercase;
+  border-radius: 2px;
+  float: right;
+  cursor: pointer;
+}

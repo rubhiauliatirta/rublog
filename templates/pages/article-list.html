@@ -1,0 +1,58 @@
+{{define "article-list"}}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  {{template "_header" .}}
+  <link href="/static/css/article-list.css" type="text/css" rel="stylesheet">
+</head>
+
+<body>
+  {{template "_navbar" .}}
+  {{template "_alert" .}}
+  <div class="container">
+    <div class="row py-5">
+      <div class="col">
+        <h1 class="text-white">My Articles</h1>
+        <!-- <div class="w-100 mt-3 mb-4" style="height: 3px; background-color: black;" ></div> -->
+        <div class="w-100 white-panel mt-5 p-5">
+          <a href="/articles/create" class="btn btn-myred">Create Article</a>
+          <table class="table table-sm table-borderless mt-3">
+            <thead>
+              <tr>
+                <th scope="col">Title</th>
+                <th scope="col">Status</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {{range .Data.Articles}}
+              <tr>
+                <td>{{.Title}}</td>
+                <td>{{if .IsPublish}}Published{{else}}Draft{{end}}</td>
+                <td class="d-flex">
+                  <a href="/articles/detail/{{.ID}}" class="btn btn-sm btn-myred ">View</a>
+                  <a href="/articles/edit/{{.ID}}" class="btn btn-sm btn-warning ml-2">Edit</a>
+                  <a href="/articles/delete/{{.ID}}" class="btn btn-sm btn-danger ml-2">Delete</a>
+                  {{if .IsPublish}}
+                    <a href="/articles/unpublish/{{.ID}}" class="btn btn-sm btn-success ml-2">Unpublish</a>
+                  {{else}}
+                    <a href="/articles/publish/{{.ID}}" class="btn btn-sm btn-primary ml-2">Publish</a>
+                  {{end}}
+                </td>
+              </tr>
+              {{else}}
+              <tr>
+                <td colspan="3" class="text-center pt-5">You don't have any article</td>
+              </tr>
+              {{end}}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
+{{end}}

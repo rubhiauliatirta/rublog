@@ -1,0 +1,16 @@
+body{
+  padding: 0;
+
+}
+.section-blog {
+  padding: 5rem 0;
+  background-color: white;
+}
+.section-me {
+  padding: 5rem 0;
+  background-color: black;
+}
+
+img {
+  width: 300px;
+}

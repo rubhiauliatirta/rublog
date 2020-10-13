@@ -1,0 +1,19 @@
+.nav-link {
+  color: white
+}
+.myred {
+  color: #850000;
+}
+
+.myshadow {
+  box-shadow: 0 0 15px 9px #00000096;
+}
+.btn-myred {
+  background-color: #850000;
+  color: white;
+}
+.btn-myred:hover {
+  background-color: white;
+  color: #850000;
+  border: solid 1px #850000;
+}

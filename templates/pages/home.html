@@ -1,0 +1,41 @@
+{{define "home"}}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {{template "_header" .}}
+    <link rel="stylesheet" href="/static/css/home.css">
+  </head>
+<body>
+    {{template "_navbar" .}}
+    {{template "_alert" .}}
+  <div class="container">
+    <div class="row py-5">
+      <div class="col">
+        <h1 class="text-white">Recent Articles</h1>
+        <!-- <div class="w-100 mt-3 mb-4" style="height: 3px; background-color: black;" ></div> -->
+        {{ if not .Data.Articles }}
+            <h5 class="text-white mt-5">There are no article in our database yet.</h5>
+        {{ end }}
+        <div class="card-columns mt-5">
+          {{range .Data.Articles}}
+          <div class="card myshadow">
+            <img class="card-img-top" src="{{.ImageURL}}" alt="Card image cap" onerror="this.src='https://www.roboratory.co.id/wp-content/uploads/2019/09/not-available.jpg'">
+            <div class="card-body">
+              <h5 class="card-title mb-0">{{.Title}}</h5>
+              <small class="card-subtitle text-muted">by {{.User.Name}}</small>
+              <p class="card-text mt-4 content-text">{{.Text}}</p>
+              <small class="card-subtitle text-muted" style="float: right;">Published on {{.FormattedDate}}</small><br>
+            </div>
+            <div class="card-footer d-flex justify-content-end">
+              <a class="myred" href="/articles/detail/{{.ID}}">Read More</a>
+            </div>
+          </div>
+          {{end}}
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</body>
+</html>
+{{end}}
